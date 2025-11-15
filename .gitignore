@@ -1,0 +1,102 @@
+# NEST-APP
+# compiled output
+/nest-app/dist
+/nest-app/node_modules
+/nest-app/build
+
+# Logs
+/nest-app/logs
+/nest-app/*.log
+/nest-app/npm-debug.log*
+/nest-app/pnpm-debug.log*
+/nest-app/yarn-debug.log*
+/nest-app/yarn-error.log*
+/nest-app/lerna-debug.log*
+
+# OS
+/nest-app/.DS_Store
+
+# Tests
+/nest-app/coverage
+/nest-app/.nyc_output
+
+# IDEs and editors
+/nest-app/.idea
+/nest-app/.project
+/nest-app/.classpath
+/nest-app/.c9/
+/nest-app/*.launch
+/nest-app/.settings/
+/mest-app/*.sublime-workspace
+
+# IDE - VSCode
+/nest-app/.vscode/*
+/nest-app/!.vscode/settings.json
+/nest-app/!.vscode/tasks.json
+/nest-app/!.vscode/launch.json
+/nest-app/!.vscode/extensions.json
+
+# dotenv environment variable files
+/nest-app/.env
+/nest-app/.env.development.local
+/nest-app/.env.test.local
+/nest-app/.env.production.local
+/nest-app/.env.local
+
+# temp directory
+/nest-app/.temp
+/nest-app/.tmp
+
+# Runtime data
+/nest-app/pids
+/nest-app/*.pid
+/nest-app/*.seed
+/nest-app/*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+/nest-app/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ANGULAR-APP
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/angular-app/dist
+/angular-app/tmp
+/angular-app/out-tsc
+/angular-app/bazel-out
+
+# Node
+/angular-app/node_modules
+/angular-app/npm-debug.log
+/angular-app/yarn-error.log
+
+# IDEs and editors
+/angular-app/.idea/
+/angular-app/.project
+/angular-app/.classpath
+/angular-app/.c9/
+/angular-app/*.launch
+/angular-app/.settings/
+/angular-app/*.sublime-workspace
+
+# Visual Studio Code
+/angular-app/.vscode/*
+/angular-app/!.vscode/settings.json
+/angular-app/!.vscode/tasks.json
+/angular-app/!.vscode/launch.json
+/angular-app/!.vscode/extensions.json
+/angular-app/.history/*
+
+# Miscellaneous
+/angular-app/.angular/cache
+/angular-app/.sass-cache/
+/angular-app/connect.lock
+/angular-app/coverage
+/angular-app/libpeerconnection.log
+/angular-app/testem.log
+/angular-app/typings
+/angular-app/__screenshots__/
+
+# SHARED
+/shared/node_modules
+/shared/dist
