@@ -15,7 +15,7 @@ export class TestComponent {
   constructor (private http: HttpClient) {}
 
   ngOnInit(){
-    this.http.get<Greeting>('test/hello').
+    this.http.get<Greeting>('api/hello').
     subscribe((res) => this.greeting = res);
   }
 
