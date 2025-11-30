@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, OnModuleInit } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+//import { Supplier } from 'src/features/supplier/entities/supplier.entity';
 import { SupplierService } from 'src/features/supplier/supplier.service';
 
 // interface EnvironmentVariables {
@@ -8,10 +9,10 @@ import { SupplierService } from 'src/features/supplier/supplier.service';
 // }
 
 @Injectable()
-export class TestService {
+export class TestService implements OnModuleInit {
   titolo: string = '';
   message: string = '';
-
+  supplier: string | undefined = '';
   constructor(
     private configService: ConfigService,
     private supplierService: SupplierService,
@@ -19,9 +20,14 @@ export class TestService {
     this.getWholeEnv();
   }
 
+  async onModuleInit() {
+    const id: number = 1;
+    const res = await this.supplierService.findOne(id);
+    this.supplier = res?.supplier;
+    console.log('value from table db is: ' + JSON.stringify(res));
+  }
+
   getWholeEnv() {
-    // const environment =
-    //   this.configService.get<EnvironmentVariables>('environment');
     console.log(
       'environment is: ' + this.configService.get<string>('http.host'),
     );

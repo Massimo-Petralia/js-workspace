@@ -12,21 +12,21 @@ import { Supplier } from './features/supplier/entities/supplier.entity';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      load: [configuration],
+    }),
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'postgres',
       host: process.env.DB_HOST,
       port: Number(process.env.DB_PORT),
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
+      database: process.env.DB_DATABASE,
       entities: [Supplier],
-      synchronize: true,
+      migrations: [],
     }),
     TestModule,
     SupplierModule,
-    ConfigModule.forRoot({
-      load: [configuration],
-    }),
   ],
   controllers: [AppController],
   providers: [AppService],
