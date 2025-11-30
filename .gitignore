@@ -42,6 +42,7 @@
 /nest-app/.env.test.local
 /nest-app/.env.production.local
 /nest-app/.env.local
+/nest-app/config/config.yaml
 
 # temp directory
 /nest-app/.temp

@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { Greeting } from 'shared';
 
-@Controller('test')
+@Controller('api')
 export class TestController {
   @Get('hello')
   getHello() {
