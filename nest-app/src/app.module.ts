@@ -1,14 +1,13 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TestModule } from './test/test/test.module';
+//import { TestModule } from './test/test/test.module';
 import { SupplierModule } from './features/supplier/supplier.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { ConfigModule } from '@nestjs/config';
-
 import configuration from './config/configuration';
 import { Supplier } from './features/supplier/entities/supplier.entity';
+import { CategoriesModule } from './features/categories/categories.module';
 
 @Module({
   imports: [
@@ -25,7 +24,8 @@ import { Supplier } from './features/supplier/entities/supplier.entity';
       entities: [Supplier],
       migrations: [],
     }),
-    TestModule,
+    //TestModule,
+    CategoriesModule,
     SupplierModule,
   ],
   controllers: [AppController],
