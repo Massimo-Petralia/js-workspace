@@ -2,37 +2,26 @@ import { Injectable } from '@nestjs/common';
 import * as fsPromises from 'fs/promises';
 import path from 'node:path';
 
-export interface GoogleTaxonomy {
+export interface CategoryTaxonomy {
   name: string;
-  children: GoogleTaxonomy[];
+  children: CategoryTaxonomy[];
 }
 
 @Injectable()
 export class FileService {
-  helloWorld(): string {
-    return 'File service work !';
-  }
-
-  async handleFile(dir: string): Promise<GoogleTaxonomy[]> {
-    let data: GoogleTaxonomy[] = [];
-    let isLoading = 'loading...';
-    console.log(isLoading);
+  async handleFile(dir: string): Promise<CategoryTaxonomy[]> {
     const fsp = fsPromises;
     const npath = path;
+    const fileName: string = npath.basename(dir);
+    let data: CategoryTaxonomy[] = [];
+    let isLoading = 'Loading file: ';
+    console.log(isLoading + fileName);
     try {
       const raw = await fsp.readFile(dir, 'utf-8');
-      const obj = JSON.parse(raw) as GoogleTaxonomy[];
-      console.log(
-        // 'data: ' +
-        //   JSON.stringify(obj) +
-        ' file name: ' +
-          npath.basename(dir) +
-          ' Directory name: ' +
-          npath.dirname(dir),
-      );
+      const obj = JSON.parse(raw) as CategoryTaxonomy[];
       data = obj;
-      isLoading = 'finish !';
-      console.log(isLoading);
+      isLoading = 'loaded !';
+      console.log('File: ' + npath.basename(dir) + ' ' + isLoading);
     } catch (err) {
       console.error('Read file failed: ' + err);
     }

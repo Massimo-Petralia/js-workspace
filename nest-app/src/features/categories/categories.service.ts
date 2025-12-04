@@ -1,16 +1,23 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { FileService, GoogleTaxonomy } from '../file/file.service';
+import { FileService, CategoryTaxonomy } from '../file/file.service';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Category } from './category.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class CategoriesService implements OnModuleInit {
-  supplier: string = 'google_taxonomy';
-  constructor(private fileService: FileService) {}
+  supplier: string = 'categories-B';
+  constructor(
+    private fileService: FileService,
+    @InjectRepository(Category)
+    private categoryRepository: Repository<Category>,
+  ) {}
 
   onModuleInit() {
     void this.saveCategory();
   }
 
-  async getData(): Promise<GoogleTaxonomy[]> {
+  async getData(): Promise<CategoryTaxonomy[]> {
     const response = await this.fileService.handleFile(
       process.env.STORAGE_BASE_URL + '/' + this.supplier + '.json',
     );

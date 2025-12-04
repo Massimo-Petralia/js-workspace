@@ -1,6 +1,5 @@
 import 'dotenv/config';
 import { DataSource } from 'typeorm';
-//import { Supplier } from '../src/features/supplier/entities/supplier.entity';
 import { Category } from '../src/features/categories/category.entity';
 
 export const dataSource = new DataSource({
