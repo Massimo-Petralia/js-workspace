@@ -1,14 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { TestModule } from './test/test/test.module';
-import { SupplierModule } from './features/supplier/supplier.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { ConfigModule } from '@nestjs/config';
-
 import configuration from './config/configuration';
-import { Supplier } from './features/supplier/entities/supplier.entity';
+import { CategoriesModule } from './features/categories/categories.module';
+import { Category } from './features/categories/category.entity';
 
 @Module({
   imports: [
@@ -22,11 +19,10 @@ import { Supplier } from './features/supplier/entities/supplier.entity';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Supplier],
+      entities: [Category],
       migrations: [],
     }),
-    TestModule,
-    SupplierModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

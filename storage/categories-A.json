@@ -1,0 +1,212 @@
+[
+  {
+    "name": "Electronics",
+    "children": [
+      {
+        "name": "Computers & Tablets",
+        "children": [
+          {"name": "Laptops", "children": []},
+          {"name": "Desktops", "children": []},
+          {"name": "Tablets", "children": []},
+          {"name": "Monitors", "children": []},
+          {"name": "Printers", "children": []}
+        ]
+      },
+      {
+        "name": "Smart Devices",
+        "children": [
+          {"name": "Smartphones", "children": []},
+          {"name": "Wearables", "children": []},
+          {"name": "Smart Home", "children": []},
+          {"name": "Speakers", "children": []},
+          {"name": "Headphones", "children": []}
+        ]
+      },
+      {
+        "name": "Cameras & Photo",
+        "children": [
+          {"name": "DSLR Cameras", "children": []},
+          {"name": "Mirrorless Cameras", "children": []},
+          {"name": "Camcorders", "children": []},
+          {"name": "Lenses", "children": []},
+          {"name": "Tripods", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Clothing & Apparel",
+    "children": [
+      {
+        "name": "Men's Clothing",
+        "children": [
+          {"name": "Shirts", "children": []},
+          {"name": "Trousers", "children": []},
+          {"name": "Jackets", "children": []},
+          {"name": "Suits", "children": []},
+          {"name": "Underwear", "children": []}
+        ]
+      },
+      {
+        "name": "Women's Clothing",
+        "children": [
+          {"name": "Dresses", "children": []},
+          {"name": "Skirts", "children": []},
+          {"name": "Blouses", "children": []},
+          {"name": "Coats", "children": []},
+          {"name": "Hosiery", "children": []}
+        ]
+      },
+      {
+        "name": "Footwear",
+        "children": [
+          {"name": "Sneakers", "children": []},
+          {"name": "Boots", "children": []},
+          {"name": "Sandals", "children": []},
+          {"name": "Dress Shoes", "children": []},
+          {"name": "Athletic Shoes", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Home & Garden",
+    "children": [
+      {
+        "name": "Furniture",
+        "children": [
+          {"name": "Sofas", "children": []},
+          {"name": "Beds", "children": []},
+          {"name": "Chairs", "children": []},
+          {"name": "Tables", "children": []},
+          {"name": "Cabinets", "children": []}
+        ]
+      },
+      {
+        "name": "Kitchenware",
+        "children": [
+          {"name": "Cookware", "children": []},
+          {"name": "Cutlery", "children": []},
+          {"name": "Appliances", "children": []},
+          {"name": "Dishes", "children": []},
+          {"name": "Glassware", "children": []}
+        ]
+      },
+      {
+        "name": "Outdoor & Patio",
+        "children": [
+          {"name": "Grills", "children": []},
+          {"name": "Patio Seating", "children": []},
+          {"name": "Gardening Tools", "children": []},
+          {"name": "Hoses", "children": []},
+          {"name": "Fountains", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Books & Media",
+    "children": [
+      {
+        "name": "Fiction",
+        "children": [
+          {"name": "Mystery", "children": []},
+          {"name": "Thriller", "children": []},
+          {"name": "Sci-Fi", "children": []},
+          {"name": "Romance", "children": []},
+          {"name": "Fantasy", "children": []}
+        ]
+      },
+      {
+        "name": "Non-Fiction",
+        "children": [
+          {"name": "Biography", "children": []},
+          {"name": "History", "children": []},
+          {"name": "Science", "children": []},
+          {"name": "Self-Help", "children": []},
+          {"name": "Cooking", "children": []}
+        ]
+      },
+      {
+        "name": "Movies & Music",
+        "children": [
+          {"name": "DVDs & Blu-Ray", "children": []},
+          {"name": "Vinyl Records", "children": []},
+          {"name": "CDs", "children": []},
+          {"name": "Video Games", "children": []},
+          {"name": "Game Accessories", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sports & Outdoors",
+    "children": [
+      {
+        "name": "Fitness Equipment",
+        "children": [
+          {"name": "Treadmills", "children": []},
+          {"name": "Weights", "children": []},
+          {"name": "Yoga Mats", "children": []},
+          {"name": "Bicycles", "children": []},
+          {"name": "Cycling Gear", "children": []}
+        ]
+      },
+      {
+        "name": "Camping & Hiking",
+        "children": [
+          {"name": "Tents", "children": []},
+          {"name": "Sleeping Bags", "children": []},
+          {"name": "Backpacks", "children": []},
+          {"name": "First Aid Kits", "children": []},
+          {"name": "Headlamps", "children": []}
+        ]
+      },
+      {
+        "name": "Team Sports",
+        "children": [
+          {"name": "Basketball", "children": []},
+          {"name": "Soccer", "children": []},
+          {"name": "Baseball", "children": []},
+          {"name": "Golf", "children": []},
+          {"name": "Tennis", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Beauty & Health",
+    "children": [
+      {
+        "name": "Skincare",
+        "children": [
+          {"name": "Cleansers", "children": []},
+          {"name": "Moisturizers", "children": []},
+          {"name": "Serums", "children": []},
+          {"name": "Sunscreen", "children": []},
+          {"name": "Eye Creams", "children": []}
+        ]
+      },
+      {
+        "name": "Makeup",
+        "children": [
+          {"name": "Foundation", "children": []},
+          {"name": "Lipstick", "children": []},
+          {"name": "Mascara", "children": []},
+          {"name": "Blush", "children": []},
+          {"name": "Brushes", "children": []}
+        ]
+      },
+      {
+        "name": "Wellness",
+        "children": [
+          {"name": "Vitamins", "children": []},
+          {"name": "Supplements", "children": []},
+          {"name": "Pain Relief", "children": []},
+          {"name": "Sleep Aids", "children": []},
+          {"name": "Dental Care", "children": []}
+        ]
+      }
+    ]
+  }
+]
