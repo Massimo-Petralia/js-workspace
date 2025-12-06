@@ -7,27 +7,32 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class CategoriesService implements OnModuleInit {
   supplier: string = 'categories-B';
+  public categories: CategoryTaxonomy[] = [];
+  public children: CategoryTaxonomy[] = [];
   constructor(
     private fileService: FileService,
     @InjectRepository(Category)
     private categoryRepository: Repository<Category>,
   ) {}
 
-  onModuleInit() {
-    void this.saveCategory();
+  async onModuleInit() {
+    await this.getData();
+    await this.saveCategory(this.categories);
   }
 
-  async getData(): Promise<CategoryTaxonomy[]> {
+  async getData() {
     const response = await this.fileService.handleFile(
       process.env.STORAGE_BASE_URL + '/' + this.supplier + '.json',
     );
-    return response;
+    this.categories = response;
   }
 
-  async saveCategory() {
-    const categories = await this.getData();
+  async saveCategory(categories: CategoryTaxonomy[]) {
     for (const category of categories) {
-      console.log(category.name);
+      const categoryRow = await this.categoryRepository.save({
+        name: category.name,
+      });
+      console.log('row created: ' + JSON.stringify(categoryRow));
     }
   }
 }
