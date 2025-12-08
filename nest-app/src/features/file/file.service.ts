@@ -4,6 +4,7 @@ import path from 'node:path';
 
 export interface CategoryTaxonomy {
   name: string;
+  parentId: number | null;
   children: CategoryTaxonomy[];
 }
 

@@ -6,8 +6,9 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CategoriesService implements OnModuleInit {
-  supplier: string = 'categories-B';
+  supplier: string = 'categories-A';
   public categories: CategoryTaxonomy[] = [];
+  public categoryId: number | null = null;
   public children: CategoryTaxonomy[] = [];
   constructor(
     private fileService: FileService,
@@ -16,23 +17,52 @@ export class CategoriesService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    await this.getData();
-    await this.saveCategory(this.categories);
+    await this.getDataFile();
+    await this.populateCategories(this.categories, undefined);
   }
 
-  async getData() {
+  async getDataFile() {
     const response = await this.fileService.handleFile(
       process.env.STORAGE_BASE_URL + '/' + this.supplier + '.json',
     );
     this.categories = response;
   }
 
-  async saveCategory(categories: CategoryTaxonomy[]) {
+  async populateCategories(
+    categories: CategoryTaxonomy[],
+    parentId: number | undefined,
+  ) {
     for (const category of categories) {
       const categoryRow = await this.categoryRepository.save({
         name: category.name,
+        parentId: parentId,
       });
-      console.log('row created: ' + JSON.stringify(categoryRow));
+      const name: string = categoryRow.name;
+      const categoryId: string = categoryRow.id.toString();
+      const parentIdValue: number | null = categoryRow.parentId;
+      console.log(
+        'name: ' +
+          name +
+          ' id: ' +
+          categoryId +
+          ' parentId: ' +
+          JSON.stringify(parentIdValue),
+      );
+      if (category.children.length !== 0) {
+        function normalizeChildren(): CategoryTaxonomy[] {
+          const children: CategoryTaxonomy[] = [];
+          for (let child of category.children) {
+            child = { ...child, parentId: categoryRow.id };
+            children.push(child);
+          }
+          return children;
+        }
+        console.log(
+          'normalized children: ',
+          JSON.stringify(normalizeChildren()),
+        );
+        await this.populateCategories(normalizeChildren(), categoryRow.id);
+      }
     }
   }
 }
