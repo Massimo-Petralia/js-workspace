@@ -6,10 +6,8 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CategoriesService implements OnModuleInit {
-  supplier: string = 'categories-A';
+  supplierCategories: string = 'supplier_categories';
   public categories: CategoryTaxonomy[] = [];
-  public categoryId: number | null = null;
-  public children: CategoryTaxonomy[] = [];
   constructor(
     private fileService: FileService,
     @InjectRepository(Category)
@@ -23,7 +21,7 @@ export class CategoriesService implements OnModuleInit {
 
   async getDataFile() {
     const response = await this.fileService.handleFile(
-      process.env.STORAGE_BASE_URL + '/' + this.supplier + '.json',
+      process.env.STORAGE_BASE_URL + '/' + this.supplierCategories + '.json',
     );
     this.categories = response;
   }
@@ -57,10 +55,6 @@ export class CategoriesService implements OnModuleInit {
           }
           return children;
         }
-        console.log(
-          'normalized children: ',
-          JSON.stringify(normalizeChildren()),
-        );
         await this.populateCategories(normalizeChildren(), categoryRow.id);
       }
     }
