@@ -23,7 +23,7 @@ export class CategoriesService implements OnModuleInit {
 
   async getDataFile() {
     const response = await this.fileService.handleFile(
-      process.env.STORAGE_BASE_URL + '/' + this.supplierCategories + '.json',
+      process.env.STORAGE_BASE_PATH + '/' + this.supplierCategories + '.json',
     );
     this.categories = response;
   }
