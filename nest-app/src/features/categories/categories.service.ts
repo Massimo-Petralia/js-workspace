@@ -3,11 +3,13 @@ import { FileService, CategoryTaxonomy } from '../file/file.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Category } from './category.entity';
 import { Repository } from 'typeorm';
+import { CategoryHelper } from './helpers/category.helper';
 
 @Injectable()
 export class CategoriesService implements OnModuleInit {
   supplierCategories: string = 'supplier_categories';
   public categories: CategoryTaxonomy[] = [];
+  categoryHelper = new CategoryHelper();
   constructor(
     private fileService: FileService,
     @InjectRepository(Category)
@@ -29,33 +31,24 @@ export class CategoriesService implements OnModuleInit {
   async populateCategories(
     categories: CategoryTaxonomy[],
     parentId: number | undefined,
+    depth: number | undefined = 0,
   ) {
     for (const category of categories) {
       const categoryRow = await this.categoryRepository.save({
         name: category.name,
         parentId: parentId,
+        level: depth,
       });
-      const name: string = categoryRow.name;
-      const categoryId: string = categoryRow.id.toString();
-      const parentIdValue: number | null = categoryRow.parentId;
-      console.log(
-        'name: ' +
-          name +
-          ' id: ' +
-          categoryId +
-          ' parentId: ' +
-          JSON.stringify(parentIdValue),
-      );
       if (category.children.length !== 0) {
-        function normalizeChildren(): CategoryTaxonomy[] {
-          const children: CategoryTaxonomy[] = [];
-          for (let child of category.children) {
-            child = { ...child, parentId: categoryRow.id };
-            children.push(child);
-          }
-          return children;
-        }
-        await this.populateCategories(normalizeChildren(), categoryRow.id);
+        const transformedCategory = this.categoryHelper.transformedCategory(
+          category,
+          categoryRow,
+        );
+        await this.populateCategories(
+          transformedCategory,
+          categoryRow.id,
+          depth + 1,
+        );
       }
     }
   }

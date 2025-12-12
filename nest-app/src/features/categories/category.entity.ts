@@ -1,6 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('supplier_categories')
+const tableName = (): string => 'supplier_categories';
+
+@Entity(tableName())
 export class Category {
   @PrimaryGeneratedColumn()
   id: number;
@@ -10,4 +12,7 @@ export class Category {
 
   @Column({ nullable: true })
   parentId: number;
+
+  @Column({ nullable: true })
+  level: number;
 }
