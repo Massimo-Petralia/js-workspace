@@ -17,15 +17,12 @@ export class CategoriesService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    await this.getDataFile();
-    await this.populateCategories(this.categories, undefined);
-  }
-
-  async getDataFile() {
-    const response = await this.fileService.handleFile(
-      process.env.STORAGE_BASE_PATH + '/' + this.supplierCategories + '.json',
-    );
-    this.categories = response;
+    // await this.populateCategories(
+    //   await this.fileService.handleFile(
+    //     process.env.STORAGE_BASE_PATH + '/' + this.supplierCategories + '.json',
+    //   ),
+    //   undefined,
+    // );
   }
 
   async populateCategories(
