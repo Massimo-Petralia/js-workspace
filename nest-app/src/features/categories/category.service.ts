@@ -6,7 +6,7 @@ import { Repository } from 'typeorm';
 import { CategoryHelper } from './helpers/category.helper';
 
 @Injectable()
-export class CategoriesService implements OnModuleInit {
+export class CategoryService implements OnModuleInit {
   supplierCategories: string = 'supplier_categories';
   public categories: CategoryTaxonomy[] = [];
   categoryHelper = new CategoryHelper();
@@ -17,6 +17,8 @@ export class CategoriesService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {}
+
+  getCategories() {}
 
   async populateCategories(
     categories: CategoryTaxonomy[],

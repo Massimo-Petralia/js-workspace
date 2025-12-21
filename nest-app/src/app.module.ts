@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
-import { CategoriesModule } from './features/categories/categories.module';
+import { CategoryModule } from './features/categories/category.module';
 import { Category } from './features/categories/category.entity';
 
 @Module({
@@ -22,7 +22,7 @@ import { Category } from './features/categories/category.entity';
       entities: [Category],
       migrations: [],
     }),
-    CategoriesModule,
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
