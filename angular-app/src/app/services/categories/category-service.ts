@@ -14,7 +14,7 @@ getCategories(): Observable<CategoryInterface[]> {
   return this.httpClient.get<CategoryInterface[]>('/api/categories');
 }
 
-getCategory(id: number | null): Observable<CategoryInterface> {
+getCategory(id: number): Observable<CategoryInterface> {
   return this.httpClient.get<CategoryInterface>(`/api/category/${id}`);
 }
   

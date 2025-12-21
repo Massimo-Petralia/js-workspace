@@ -1,6 +1,6 @@
 <ul>
 @for (category of categories; track category.id) {
-<li style="list-style-type: none;"><app-category [category]="category" /></li> 
+<li [style.--moltiplicator]="category.level"><app-category [category]="category" /></li> 
 }
 @empty {
 <li>There are no categories</li>
