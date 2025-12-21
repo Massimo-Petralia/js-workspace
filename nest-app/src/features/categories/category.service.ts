@@ -27,6 +27,14 @@ export class CategoryService implements OnModuleInit {
     });
   }
 
+  async getCategoryChildren(id: number): Promise<Category[]> {
+    return await this.categoryRepository.find({
+      where: {
+        parent: { id },
+      },
+    });
+  }
+
   async populateCategories(
     categories: CategoryTaxonomy[],
     parentId: number | undefined,
