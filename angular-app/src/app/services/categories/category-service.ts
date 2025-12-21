@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Category } from 'shared';
+import { CategoryInterface } from 'shared';
 
 @Injectable({
   providedIn: 'root',
@@ -10,12 +10,12 @@ export class CategoryService {
 
 private httpClient = inject(HttpClient)
 
-getCategories(): Observable<Category[]> {
-  return this.httpClient.get<Category[]>('/api/categories');
+getCategories(): Observable<CategoryInterface[]> {
+  return this.httpClient.get<CategoryInterface[]>('/api/categories');
 }
 
-getCategory(id: number | null): Observable<Category> {
-  return this.httpClient.get<Category>(`/api/category/${id}`);
+getCategory(id: number | null): Observable<CategoryInterface> {
+  return this.httpClient.get<CategoryInterface>(`/api/category/${id}`);
 }
   
 }

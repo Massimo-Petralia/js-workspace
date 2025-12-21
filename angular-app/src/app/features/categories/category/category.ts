@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CategoryInterface } from 'shared';
 
 @Component({
   selector: 'app-category',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './category.scss',
 })
 export class Category {
+
+  @Input() category!: CategoryInterface;
 
 }

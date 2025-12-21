@@ -1,20 +1,21 @@
 import { Component, inject } from '@angular/core';
 import { CategoryService } from '../../../services/categories/category-service';
-import { Category } from 'shared';
+import { CategoryInterface } from 'shared';
+import { Category } from "../category/category";
 
 @Component({
   selector: 'app-category-page',
-  imports: [],
+  imports: [Category],
   templateUrl: './category-page.html',
   styleUrl: './category-page.scss',
 })
 export class CategoryPage {
  
 private categoryService = inject(CategoryService);
-categories: Category[] = [];
+categories: CategoryInterface[] = [];
 
 constructor() {
- // this.categoryService.getCategories().subscribe((categories) => this.categories = categories);
+ this.categoryService.getCategories().subscribe((categories) => this.categories = categories);
 }
 
 }

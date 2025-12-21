@@ -11,7 +11,7 @@ export class Category {
   name: string;
 
   @Column({ nullable: true })
-  parentId: number;
+  parent_id: number;
 
   @Column({ nullable: true })
   level: number;

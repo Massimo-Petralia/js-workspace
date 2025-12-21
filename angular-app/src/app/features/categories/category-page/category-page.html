@@ -1,1 +1,8 @@
-<p>category-page works!</p>
+<ul>
+@for (category of categories; track category.id) {
+<li style="list-style-type: none;"><app-category [category]="category" /></li> 
+}
+@empty {
+<li>There are no categories</li>
+}
+</ul>

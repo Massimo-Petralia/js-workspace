@@ -1,10 +1,8 @@
-export interface Category {
+export interface CategoryInterface {
     id: number,
     name: string,
-    parentId: number,
+    parentId: number | null,
     level: number,
-    children?: Category[]
 }
-
 
 
