@@ -16,14 +16,7 @@ export class CategoriesService implements OnModuleInit {
     private categoryRepository: Repository<Category>,
   ) {}
 
-  async onModuleInit() {
-    // await this.populateCategories(
-    //   await this.fileService.handleFile(
-    //     process.env.STORAGE_BASE_PATH + '/' + this.supplierCategories + '.json',
-    //   ),
-    //   undefined,
-    // );
-  }
+  async onModuleInit() {}
 
   async populateCategories(
     categories: CategoryTaxonomy[],

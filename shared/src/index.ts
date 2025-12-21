@@ -1,1 +1,1 @@
-export * from "./models/greeting";
+export * from "./models/category";
