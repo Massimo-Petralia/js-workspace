@@ -3,6 +3,7 @@ export interface CategoryInterface {
     name: string,
     parentId: number | null,
     level: number,
+    children?: CategoryInterface[]
 }
 
 

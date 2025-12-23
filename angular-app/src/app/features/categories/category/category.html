@@ -1,2 +1,11 @@
-<p>{{category.name}}</p>
+<div style="display: flex; flex-direction:column;">
+  <div style="display: flex; flex-direction:row; flex-wrap:nowrap">
+   <p (click)="getChildren()">+</p><p>{{category.name}}</p>
+  </div>
+@for (child of category.children; track child.id) {
+ <li [style.--multiplicator]="child.level">
+  <app-category [category]="child"/>
+ </li> 
+}
+</div>
 

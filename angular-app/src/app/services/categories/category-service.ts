@@ -2,6 +2,8 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CategoryInterface } from 'shared';
+import { Category } from '../../features/categories/category/category';
+
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +17,38 @@ getCategories(): Observable<CategoryInterface[]> {
 }
 
 getCategoryChildren(id: number): Observable<CategoryInterface[]> {
-  return this.httpClient.get<CategoryInterface[]>(`/api/category/${id}`);
+  return this.httpClient.get<CategoryInterface[]>(`/api/categories/${id}`);
 }
   
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ChildRegistryService {
+  
+  private map = new Map<number, Category>();
+  
+constructor(private categoryService: CategoryService) {}
+  register(id: number, instance : Category) {
+    this.map.set(id, instance);
+  }
+
+  unregister(id: number) {
+    this.map.delete(id);
+  }
+
+  get(id: number) {
+    return this.map.get(id);
+  }
+
+  getChildren(id: number) {
+    const categoryNode = this.get(id);
+    this.categoryService.getCategoryChildren(id).subscribe(response => {
+      if(!categoryNode) return;
+      categoryNode.category.children = response;
+
+    })
+  }
+
 }
