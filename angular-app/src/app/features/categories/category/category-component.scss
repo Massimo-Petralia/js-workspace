@@ -1,0 +1,24 @@
+li {
+  list-style-type: none;
+  margin-left: calc(var(--multiplicator) * 20px);
+}
+.category-row-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}
+
+.custom-button {
+  height: fit-content;
+  background-color: transparent;
+  border: none;
+}
+
+.show-children {
+  display: block;
+}
+
+.hide-children {
+  display: none;
+}

@@ -1,0 +1,15 @@
+<div style="display: flex; flex-direction:column;">
+  <div class="category-row-wrapper">
+   <button class="custom-button" (click)="getChildren()">
+    @if (isExpandable()) {-} @else {+}
+   </button><p>{{category.name}}</p>
+  </div>
+  <div [class]="isOpen()  ? 'show-children' : 'hide-children'">
+   @for (child of category.children; track child.id) {
+    <li [style.--multiplicator]="child.level">
+     <app-category-component [category]="child"/>
+    </li> 
+  }
+  </div>
+</div>
+

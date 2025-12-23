@@ -1,25 +1,29 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 import { CategoryInterface } from 'shared';
-import { Category } from '../../features/categories/category/category';
-
+import { CategoryComponent } from '../../features/categories/category/category-component';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
+  private httpClient = inject(HttpClient);
 
-private httpClient = inject(HttpClient)
+  constructor(private childRegistryService: ChildRegistryService) {}
 
-getCategories(): Observable<CategoryInterface[]> {
-  return this.httpClient.get<CategoryInterface[]>('/api/categories');
-}
+  getTopCategories(): Observable<CategoryInterface[]> {
+    return this.httpClient.get<CategoryInterface[]>('/api/categories');
+  }
 
-getCategoryChildren(id: number): Observable<CategoryInterface[]> {
-  return this.httpClient.get<CategoryInterface[]>(`/api/categories/${id}`);
-}
-  
+  getCategoryChildren(id: number) {
+    const categoryComponent = this.childRegistryService.get(id);
+    const categoryObservable = this.httpClient.get<CategoryInterface[]>(`/api/categories/${id}`);
+    categoryObservable.subscribe((response) => {
+      if(!categoryComponent) return;
+      categoryComponent.category.children = response;
+    });
+  }
 }
 
 @Injectable({
@@ -27,10 +31,9 @@ getCategoryChildren(id: number): Observable<CategoryInterface[]> {
 })
 export class ChildRegistryService {
   
-  private map = new Map<number, Category>();
-  
-constructor(private categoryService: CategoryService) {}
-  register(id: number, instance : Category) {
+  private map = new Map<number, CategoryComponent>();
+
+  register(id: number, instance: CategoryComponent) {
     this.map.set(id, instance);
   }
 
@@ -41,14 +44,4 @@ constructor(private categoryService: CategoryService) {}
   get(id: number) {
     return this.map.get(id);
   }
-
-  getChildren(id: number) {
-    const categoryNode = this.get(id);
-    this.categoryService.getCategoryChildren(id).subscribe(response => {
-      if(!categoryNode) return;
-      categoryNode.category.children = response;
-
-    })
-  }
-
 }
