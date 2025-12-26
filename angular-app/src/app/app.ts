@@ -9,5 +9,5 @@ import { CategoryPageComponent } from './features/categories/category-page/categ
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('angular-app');
+  protected readonly title = signal('Categories');
 }

@@ -33,10 +33,10 @@ export class CategoryComponent implements OnInit, OnDestroy {
     if (!this.hasChildren()) {
       this.categoryService.getCategoryChildren(this.category.id);
     }
-    this.toggleNode();
+    this.toggleIsOpen();
   }
 
-  toggleNode() {
+  toggleIsOpen() {
     this.isOpen.set(!this.isOpen());
   }
 
