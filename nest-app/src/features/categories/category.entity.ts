@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 const tableName = (): string => 'supplier_categories';
 
@@ -11,8 +18,15 @@ export class Category {
   name: string;
 
   @Column({ nullable: true })
-  parentId: number;
+  parent_id: number;
 
   @Column({ nullable: true })
   level: number;
+
+  @ManyToOne(() => Category, (category) => category.children)
+  @JoinColumn({ name: 'parent_id' })
+  parent: Category;
+
+  @OneToMany(() => Category, (category) => category.parent)
+  children: Category[];
 }

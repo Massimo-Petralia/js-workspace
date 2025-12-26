@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TestComponent } from './test/test-component/test-component';
+import { CategoryPageComponent } from './features/categories/category-page/category-page-component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TestComponent],
+  imports: [RouterOutlet, CategoryPageComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('angular-app');
+  protected readonly title = signal('Categories');
 }

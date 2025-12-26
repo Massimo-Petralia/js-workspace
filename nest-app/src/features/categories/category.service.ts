@@ -2,13 +2,14 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { FileService, CategoryTaxonomy } from '../file/file.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Category } from './category.entity';
-import { Repository } from 'typeorm';
+import { Repository, IsNull } from 'typeorm';
 import { CategoryHelper } from './helpers/category.helper';
 
 @Injectable()
-export class CategoriesService implements OnModuleInit {
-  supplierCategories: string = 'supplier_categories';
-  public categories: CategoryTaxonomy[] = [];
+export class CategoryService implements OnModuleInit {
+  supplierCategoriesFileName: string = 'supplier_categories';
+  public categories: Category[] = [];
+
   categoryHelper = new CategoryHelper();
   constructor(
     private fileService: FileService,
@@ -16,13 +17,22 @@ export class CategoriesService implements OnModuleInit {
     private categoryRepository: Repository<Category>,
   ) {}
 
-  async onModuleInit() {
-    // await this.populateCategories(
-    //   await this.fileService.handleFile(
-    //     process.env.STORAGE_BASE_PATH + '/' + this.supplierCategories + '.json',
-    //   ),
-    //   undefined,
-    // );
+  async onModuleInit() {}
+
+  async getCategories(): Promise<Category[]> {
+    return await this.categoryRepository.find({
+      where: {
+        parent_id: IsNull(),
+      },
+    });
+  }
+
+  async getCategoryChildren(id: number): Promise<Category[]> {
+    return await this.categoryRepository.find({
+      where: {
+        parent: { id },
+      },
+    });
   }
 
   async populateCategories(
@@ -33,7 +43,7 @@ export class CategoriesService implements OnModuleInit {
     for (const category of categories) {
       const categoryRow = await this.categoryRepository.save({
         name: category.name,
-        parentId: parentId,
+        parent_id: parentId,
         level: depth,
       });
       if (category.children.length !== 0) {
