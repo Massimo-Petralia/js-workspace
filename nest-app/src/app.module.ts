@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { CategoryModule } from './features/categories/category.module';
 import { Category } from './features/categories/category.entity';
+import { TensorFlowTest } from './features/tensor-flow-test/tensor-flow-service';
 
 @Module({
   imports: [
@@ -25,6 +26,6 @@ import { Category } from './features/categories/category.entity';
     CategoryModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, TensorFlowTest],
 })
 export class AppModule {}
