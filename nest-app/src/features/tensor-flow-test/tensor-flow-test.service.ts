@@ -1,14 +1,18 @@
-import { Injectable } from '@nestjs/common';
-// Use `tfjs-node`. Note that `tfjs` is imported indirectly by `tfjs-node`.
-import tf from '@tensorflow/tfjs-node';
+import { Injectable, OnModuleInit } from '@nestjs/common';
+import { TfService } from '../tensorflowjs/tf.service';
 
 @Injectable()
-export class TensorFlowTest {
-  constructor() {
+export class TensorFlowTest implements OnModuleInit {
+  constructor(private tfService: TfService) {}
+
+  async onModuleInit() {
+    await this.tfService.ready();
     this.testTensorFlow();
   }
 
   testTensorFlow() {
+    const tf = this.tfService.get();
+
     const model = tf.sequential();
     model.add(
       tf.layers.dense({ units: 100, activation: 'relu', inputShape: [10] }),
@@ -19,7 +23,6 @@ export class TensorFlowTest {
     const xs = tf.randomNormal([100, 10]);
     const ys = tf.randomNormal([100, 1]);
 
-    // Train the model.
     void model.fit(xs, ys, {
       epochs: 100,
       callbacks: {
