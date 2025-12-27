@@ -7,6 +7,8 @@ import configuration from './config/configuration';
 import { CategoryModule } from './features/categories/category.module';
 import { Category } from './features/categories/category.entity';
 import { TensorFlowTest } from './features/tensor-flow-test/tensor-flow-service';
+import { TfService } from './src/features/tensorflowjs/tf/tf.service';
+import { TfService } from './features/tensorflowjs/tf/tf.service';
 
 @Module({
   imports: [
@@ -26,6 +28,6 @@ import { TensorFlowTest } from './features/tensor-flow-test/tensor-flow-service'
     CategoryModule,
   ],
   controllers: [AppController],
-  providers: [AppService, TensorFlowTest],
+  providers: [AppService, TensorFlowTest, TfService],
 })
 export class AppModule {}
