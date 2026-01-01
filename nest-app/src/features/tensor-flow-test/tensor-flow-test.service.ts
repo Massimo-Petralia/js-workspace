@@ -12,23 +12,8 @@ export class TensorFlowTest implements OnModuleInit {
 
   testTensorFlow() {
     const tf = this.tfService.get();
-
-    const model = tf.sequential();
-    model.add(
-      tf.layers.dense({ units: 100, activation: 'relu', inputShape: [10] }),
-    );
-    model.add(tf.layers.dense({ units: 1, activation: 'linear' }));
-    model.compile({ optimizer: 'sgd', loss: 'meanSquaredError' });
-
-    const xs = tf.randomNormal([100, 10]);
-    const ys = tf.randomNormal([100, 1]);
-
-    void model.fit(xs, ys, {
-      epochs: 100,
-      callbacks: {
-        onEpochEnd: (epoch, log) =>
-          console.log(`Epoch ${epoch}: loss = ${log?.loss}`),
-      },
-    });
+    const shape = [2, 2];
+    const tensor = tf.tensor([3, 5, 5, 7], shape, 'int32');
+    void tensor.array().then((array) => console.log(array));
   }
 }
