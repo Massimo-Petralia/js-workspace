@@ -1,25 +1,25 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { FileService, CategoryTaxonomy } from '../file/file.service';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Category } from './category.entity';
+import { SupplierCategoryEntity } from './entity/supplier-category.entity';
 import { Repository, IsNull } from 'typeorm';
 import { CategoryHelper } from './helpers/category.helper';
 
 @Injectable()
 export class CategoryService implements OnModuleInit {
   supplierCategoriesFileName: string = 'supplier_categories';
-  public categories: Category[] = [];
+  public categories: SupplierCategoryEntity[] = [];
 
   categoryHelper = new CategoryHelper();
   constructor(
     private fileService: FileService,
-    @InjectRepository(Category)
-    private categoryRepository: Repository<Category>,
+    @InjectRepository(SupplierCategoryEntity)
+    private categoryRepository: Repository<SupplierCategoryEntity>,
   ) {}
 
   async onModuleInit() {}
 
-  async getCategories(): Promise<Category[]> {
+  async getCategories(): Promise<SupplierCategoryEntity[]> {
     return await this.categoryRepository.find({
       where: {
         parent_id: IsNull(),
@@ -27,7 +27,7 @@ export class CategoryService implements OnModuleInit {
     });
   }
 
-  async getCategoryChildren(id: number): Promise<Category[]> {
+  async getCategoryChildren(id: number): Promise<SupplierCategoryEntity[]> {
     return await this.categoryRepository.find({
       where: {
         parent: { id },

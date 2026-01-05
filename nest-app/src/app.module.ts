@@ -5,9 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import configuration from './config/configuration';
 import { CategoryModule } from './features/categories/category.module';
-import { Category } from './features/categories/category.entity';
-import { TensorFlowTest } from './features/tensor-flow-test/tensor-flow-test.service';
-import { TfService } from './features/tensorflowjs/tf.service';
+import { EmbeddingTestModule } from './features/embedding-test/embedding-test.module';
 
 @Module({
   imports: [
@@ -21,12 +19,13 @@ import { TfService } from './features/tensorflowjs/tf.service';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      entities: [Category],
+      autoLoadEntities: true,
       migrations: [],
     }),
     CategoryModule,
+    EmbeddingTestModule,
   ],
   controllers: [AppController],
-  providers: [AppService, TfService, TensorFlowTest],
+  providers: [AppService],
 })
 export class AppModule {}

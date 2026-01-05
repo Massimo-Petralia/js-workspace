@@ -7,10 +7,10 @@ import {
   JoinColumn,
 } from 'typeorm';
 
-const tableName = (): string => 'supplier_categories';
+const tableName = (): string => 'marketplace_categories';
 
 @Entity(tableName())
-export class Category {
+export class MarketplaceCategoryEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -23,10 +23,10 @@ export class Category {
   @Column({ nullable: true })
   level: number;
 
-  @ManyToOne(() => Category, (category) => category.children)
+  @ManyToOne(() => MarketplaceCategoryEntity, (category) => category.children)
   @JoinColumn({ name: 'parent_id' })
-  parent: Category;
+  parent: MarketplaceCategoryEntity;
 
-  @OneToMany(() => Category, (category) => category.parent)
-  children: Category[];
+  @OneToMany(() => MarketplaceCategoryEntity, (category) => category.parent)
+  children: MarketplaceCategoryEntity[];
 }
