@@ -101,3 +101,6 @@
 # SHARED
 /shared/node_modules
 /shared/dist
+
+# MODELS
+/models
