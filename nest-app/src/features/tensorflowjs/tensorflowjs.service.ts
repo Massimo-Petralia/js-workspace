@@ -11,7 +11,9 @@ export class TfService implements OnModuleInit {
     this.readyPromise = (async () => {
       await tf.setBackend('cpu');
       await tf.ready();
-      this.model = await use.load();
+      this.model = await use.load({
+        modelUrl: 'http://127.0.0.1:8080/model.json',
+      });
     })();
     await this.readyPromise;
   }
