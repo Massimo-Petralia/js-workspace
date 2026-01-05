@@ -1,6 +1,6 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { CategoryService } from './category.service';
-import { Category } from './category.entity';
+import { SupplierCategoryEntity } from './entity/supplier-category.entity';
 
 @Controller('api')
 export class CategoryController {
@@ -8,7 +8,7 @@ export class CategoryController {
 
   @Get('categories')
   async getCategories() {
-    let categories: Category[] = [];
+    let categories: SupplierCategoryEntity[] = [];
     await this.categoryService
       .getCategories()
       .then((response) => (categories = response));
@@ -17,7 +17,7 @@ export class CategoryController {
 
   @Get('categories/:id')
   async getCategoryNodes(@Param('id') id: number) {
-    let categories: Category[] = [];
+    let categories: SupplierCategoryEntity[] = [];
     await this.categoryService
       .getCategoryChildren(id)
       .then((response) => (categories = response));

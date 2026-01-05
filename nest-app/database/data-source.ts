@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import { DataSource } from 'typeorm';
-import { Category } from '../src/features/categories/category.entity';
+import { SupplierCategoryEntity } from '../src/features/categories/entity/supplier-category.entity';
+import { MarketplaceCategoryEntity } from '../src/features/categories/entity/marketplace-category.entity';
 
 export const dataSource = new DataSource({
   type: 'postgres',
@@ -9,7 +10,7 @@ export const dataSource = new DataSource({
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-  entities: [Category],
+  entities: [SupplierCategoryEntity, MarketplaceCategoryEntity],
   migrations: ['database/migrations/*.ts'],
   synchronize: false,
 });
