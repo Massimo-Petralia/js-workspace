@@ -23,6 +23,9 @@ export class MarketplaceCategoryEntity {
   @Column({ nullable: true })
   level: number;
 
+  @Column({ type: 'vector', length: 512 })
+  embedding: number[];
+
   @ManyToOne(() => MarketplaceCategoryEntity, (category) => category.children)
   @JoinColumn({ name: 'parent_id' })
   parent: MarketplaceCategoryEntity;

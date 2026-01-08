@@ -4,23 +4,79 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { SupplierCategoryEntity } from './entity/supplier-category.entity';
 import { Repository, IsNull } from 'typeorm';
 import { CategoryHelper } from './helpers/category.helper';
+import { MarketplaceCategoryEntity } from './entity/marketplace-category.entity';
+import { TfService } from '../tensorflowjs/tensorflowjs.service';
 
 @Injectable()
 export class CategoryService implements OnModuleInit {
-  supplierCategoriesFileName: string = 'supplier_categories';
+  categoriesFileName: string = 'marketplace_categories';
   public categories: SupplierCategoryEntity[] = [];
 
   categoryHelper = new CategoryHelper();
   constructor(
     private fileService: FileService,
     @InjectRepository(SupplierCategoryEntity)
-    private categoryRepository: Repository<SupplierCategoryEntity>,
+    private supplierCategoryRepository: Repository<SupplierCategoryEntity>,
+    @InjectRepository(MarketplaceCategoryEntity)
+    private marketplaceCategoryRepository: Repository<MarketplaceCategoryEntity>,
+    private tfService: TfService,
   ) {}
 
-  async onModuleInit() {}
+  async onModuleInit() {
+    await this.tfService.ready();
+    void this.associateCategoriesByDistance();
+  }
+
+  getAllCategories(
+    categories: SupplierCategoryEntity[] | MarketplaceCategoryEntity[],
+  ) {
+    return categories;
+  }
+
+  async addEmbedding() {
+    const entities = await this.marketplaceCategoryRepository.find();
+    const embeddings = await this.tfService.embed(
+      entities.map((category) => category.name),
+    );
+    for (const [index, category] of entities.entries()) {
+      await this.marketplaceCategoryRepository.update(
+        { id: category.id },
+        { embedding: embeddings[index] },
+      );
+      console.log(
+        'current processed element: ',
+        `index: ${index} id: ${category.id}`,
+      );
+    }
+  }
+
+  async associateCategoriesByDistance(limit = 1) {
+    const entities = await this.supplierCategoryRepository.find();
+    function toPgVector(v: number[]): string {
+      return `[${v.join()}]`;
+    }
+    // eslint-disable-next-line prefer-const
+    for (let entity of entities) {
+      const qb = this.marketplaceCategoryRepository
+        .createQueryBuilder('c')
+        .select(['c.id', 'c.name'])
+        .addSelect('c.embedding <=> :query', 'distance')
+        .setParameter('query', toPgVector(entity.embedding))
+        .orderBy('distance', 'ASC')
+        .limit(limit);
+      const association = await qb.getMany();
+      await this.supplierCategoryRepository.update(
+        {
+          id: entity.id,
+        },
+        { marketplace_category: association[0].name },
+      );
+      console.log(association[0].name);
+    }
+  }
 
   async getCategories(): Promise<SupplierCategoryEntity[]> {
-    return await this.categoryRepository.find({
+    return await this.supplierCategoryRepository.find({
       where: {
         parent_id: IsNull(),
       },
@@ -28,7 +84,7 @@ export class CategoryService implements OnModuleInit {
   }
 
   async getCategoryChildren(id: number): Promise<SupplierCategoryEntity[]> {
-    return await this.categoryRepository.find({
+    return await this.supplierCategoryRepository.find({
       where: {
         parent: { id },
       },
@@ -41,7 +97,7 @@ export class CategoryService implements OnModuleInit {
     depth: number | undefined = 0,
   ) {
     for (const category of categories) {
-      const categoryRow = await this.categoryRepository.save({
+      const categoryRow = await this.marketplaceCategoryRepository.save({
         name: category.name,
         parent_id: parentId,
         level: depth,
