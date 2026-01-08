@@ -1,35 +1,80 @@
 [
   {
-    "name": "Digital Gear",
+    "name": "Consumer electronics",
     "children": [
       {
         "name": "Computing Systems",
         "children": [
-          {"name": "Portable PCs", "children": []},
-          {"name": "Tower Units", "children": []},
-          {"name": "Slates", "children": []},
-          {"name": "Displays", "children": []},
-          {"name": "Printing Devices", "children": []}
+          {
+            "name": "Portable PCs",
+            "children": []
+          },
+          {
+            "name": "Tower Units",
+            "children": []
+          },
+          {
+            "name": "Slates",
+            "children": []
+          },
+          {
+            "name": "Displays",
+            "children": []
+          },
+          {
+            "name": "Printing Devices",
+            "children": []
+          }
         ]
       },
       {
         "name": "Connected Gadgets",
         "children": [
-          {"name": "Mobile Phones", "children": []},
-          {"name": "Fitness Trackers", "children": []},
-          {"name": "Automated Living", "children": []},
-          {"name": "Audio Systems", "children": []},
-          {"name": "Earphones", "children": []}
+          {
+            "name": "Mobile Phones",
+            "children": []
+          },
+          {
+            "name": "Fitness Trackers",
+            "children": []
+          },
+          {
+            "name": "Automated Living",
+            "children": []
+          },
+          {
+            "name": "Audio Systems",
+            "children": []
+          },
+          {
+            "name": "Earphones",
+            "children": []
+          }
         ]
       },
       {
         "name": "Imaging Apparatus",
         "children": [
-          {"name": "Professional Cameras", "children": []},
-          {"name": "Compact System Cameras", "children": []},
-          {"name": "Video Recorders", "children": []},
-          {"name": "Optics", "children": []},
-          {"name": "Stabilizers", "children": []}
+          {
+            "name": "Professional Cameras",
+            "children": []
+          },
+          {
+            "name": "Compact System Cameras",
+            "children": []
+          },
+          {
+            "name": "Video Recorders",
+            "children": []
+          },
+          {
+            "name": "Optics",
+            "children": []
+          },
+          {
+            "name": "Stabilizers",
+            "children": []
+          }
         ]
       }
     ]
@@ -40,31 +85,76 @@
       {
         "name": "Gentlemen's Wear",
         "children": [
-          {"name": "Tops", "children": []},
-          {"name": "Pants", "children": []},
-          {"name": "Outerwear", "children": []},
-          {"name": "Formal Sets", "children": []},
-          {"name": "Intimates", "children": []}
+          {
+            "name": "Tops",
+            "children": []
+          },
+          {
+            "name": "Pants",
+            "children": []
+          },
+          {
+            "name": "Outerwear",
+            "children": []
+          },
+          {
+            "name": "Formal Sets",
+            "children": []
+          },
+          {
+            "name": "Intimates",
+            "children": []
+          }
         ]
       },
       {
         "name": "Ladies' Wear",
         "children": [
-          {"name": "Frocks", "children": []},
-          {"name": "Bottoms", "children": []},
-          {"name": "Woven Shirts", "children": []},
-          {"name": "Overcoats", "children": []},
-          {"name": "Legwear", "children": []}
+          {
+            "name": "Frocks",
+            "children": []
+          },
+          {
+            "name": "Bottoms",
+            "children": []
+          },
+          {
+            "name": "Woven Shirts",
+            "children": []
+          },
+          {
+            "name": "Overcoats",
+            "children": []
+          },
+          {
+            "name": "Legwear",
+            "children": []
+          }
         ]
       },
       {
         "name": "A-pied Gear",
         "children": [
-          {"name": "Trainers", "children": []},
-          {"name": "Work Boots", "children": []},
-          {"name": "Open Shoes", "children": []},
-          {"name": "Formal Footwear", "children": []},
-          {"name": "Running Shoes", "children": []}
+          {
+            "name": "Trainers",
+            "children": []
+          },
+          {
+            "name": "Work Boots",
+            "children": []
+          },
+          {
+            "name": "Open Shoes",
+            "children": []
+          },
+          {
+            "name": "Formal Footwear",
+            "children": []
+          },
+          {
+            "name": "Running Shoes",
+            "children": []
+          }
         ]
       }
     ]
@@ -75,31 +165,76 @@
       {
         "name": "Interior Furnishings",
         "children": [
-          {"name": "Couches", "children": []},
-          {"name": "Sleeping Arrangements", "children": []},
-          {"name": "Seating", "children": []},
-          {"name": "Surfaces", "children": []},
-          {"name": "Storage Units", "children": []}
+          {
+            "name": "Couches",
+            "children": []
+          },
+          {
+            "name": "Sleeping Arrangements",
+            "children": []
+          },
+          {
+            "name": "Seating",
+            "children": []
+          },
+          {
+            "name": "Surfaces",
+            "children": []
+          },
+          {
+            "name": "Storage Units",
+            "children": []
+          }
         ]
       },
       {
         "name": "Culinary Items",
         "children": [
-          {"name": "Pots & Pans", "children": []},
-          {"name": "Flatware", "children": []},
-          {"name": "Machines", "children": []},
-          {"name": "Tableware", "children": []},
-          {"name": "Beverage Glasses", "children": []}
+          {
+            "name": "Pots & Pans",
+            "children": []
+          },
+          {
+            "name": "Flatware",
+            "children": []
+          },
+          {
+            "name": "Machines",
+            "children": []
+          },
+          {
+            "name": "Tableware",
+            "children": []
+          },
+          {
+            "name": "Beverage Glasses",
+            "children": []
+          }
         ]
       },
       {
         "name": "External Spaces",
         "children": [
-          {"name": "Barbecues", "children": []},
-          {"name": "Deck Seating", "children": []},
-          {"name": "Landscaping Tools", "children": []},
-          {"name": "Water Pipes", "children": []},
-          {"name": "Water Features", "children": []}
+          {
+            "name": "Barbecues",
+            "children": []
+          },
+          {
+            "name": "Deck Seating",
+            "children": []
+          },
+          {
+            "name": "Landscaping Tools",
+            "children": []
+          },
+          {
+            "name": "Water Pipes",
+            "children": []
+          },
+          {
+            "name": "Water Features",
+            "children": []
+          }
         ]
       }
     ]
@@ -110,31 +245,76 @@
       {
         "name": "Narratives",
         "children": [
-          {"name": "Whodunits", "children": []},
-          {"name": "Suspense", "children": []},
-          {"name": "Space Opera", "children": []},
-          {"name": "Affairs of the Heart", "children": []},
-          {"name": "Epic Tales", "children": []}
+          {
+            "name": "Whodunits",
+            "children": []
+          },
+          {
+            "name": "Suspense",
+            "children": []
+          },
+          {
+            "name": "Space Opera",
+            "children": []
+          },
+          {
+            "name": "Affairs of the Heart",
+            "children": []
+          },
+          {
+            "name": "Epic Tales",
+            "children": []
+          }
         ]
       },
       {
         "name": "Factual Works",
         "children": [
-          {"name": "Life Stories", "children": []},
-          {"name": "Chronicles", "children": []},
-          {"name": "Natural World", "children": []},
-          {"name": "Personal Growth", "children": []},
-          {"name": "Recipe Books", "children": []}
+          {
+            "name": "Life Stories",
+            "children": []
+          },
+          {
+            "name": "Chronicles",
+            "children": []
+          },
+          {
+            "name": "Natural World",
+            "children": []
+          },
+          {
+            "name": "Personal Growth",
+            "children": []
+          },
+          {
+            "name": "Recipe Books",
+            "children": []
+          }
         ]
       },
       {
         "name": "Films & Recordings",
         "children": [
-          {"name": "Disc Media", "children": []},
-          {"name": "Analog Records", "children": []},
-          {"name": "Compact Discs", "children": []},
-          {"name": "Interactive Games", "children": []},
-          {"name": "Gaming Peripherals", "children": []}
+          {
+            "name": "Disc Media",
+            "children": []
+          },
+          {
+            "name": "Analog Records",
+            "children": []
+          },
+          {
+            "name": "Compact Discs",
+            "children": []
+          },
+          {
+            "name": "Interactive Games",
+            "children": []
+          },
+          {
+            "name": "Gaming Peripherals",
+            "children": []
+          }
         ]
       }
     ]
@@ -145,31 +325,76 @@
       {
         "name": "Exercise Gear",
         "children": [
-          {"name": "Running Machines", "children": []},
-          {"name": "Free Weights", "children": []},
-          {"name": "Studio Mats", "children": []},
-          {"name": "Cycles", "children": []},
-          {"name": "Riding Accessories", "children": []}
+          {
+            "name": "Running Machines",
+            "children": []
+          },
+          {
+            "name": "Free Weights",
+            "children": []
+          },
+          {
+            "name": "Studio Mats",
+            "children": []
+          },
+          {
+            "name": "Cycles",
+            "children": []
+          },
+          {
+            "name": "Riding Accessories",
+            "children": []
+          }
         ]
       },
       {
         "name": "Trekking & Outdoors",
         "children": [
-          {"name": "Shelters", "children": []},
-          {"name": "Bivouac Sacks", "children": []},
-          {"name": "Rucksacks", "children": []},
-          {"name": "Emergency Kits", "children": []},
-          {"name": "Torches", "children": []}
+          {
+            "name": "Shelters",
+            "children": []
+          },
+          {
+            "name": "Bivouac Sacks",
+            "children": []
+          },
+          {
+            "name": "Rucksacks",
+            "children": []
+          },
+          {
+            "name": "Emergency Kits",
+            "children": []
+          },
+          {
+            "name": "Torches",
+            "children": []
+          }
         ]
       },
       {
         "name": "Group Competitions",
         "children": [
-          {"name": "Hoops", "children": []},
-          {"name": "Football", "children": []},
-          {"name": "Diamond Sports", "children": []},
-          {"name": "Club & Ball Sports", "children": []},
-          {"name": "Racket Sports", "children": []}
+          {
+            "name": "Hoops",
+            "children": []
+          },
+          {
+            "name": "Football",
+            "children": []
+          },
+          {
+            "name": "Diamond Sports",
+            "children": []
+          },
+          {
+            "name": "Club & Ball Sports",
+            "children": []
+          },
+          {
+            "name": "Racket Sports",
+            "children": []
+          }
         ]
       }
     ]
@@ -180,31 +405,76 @@
       {
         "name": "Facial Treatments",
         "children": [
-          {"name": "Washing Agents", "children": []},
-          {"name": "Hydrators", "children": []},
-          {"name": "Concentrates", "children": []},
-          {"name": "UV Protection", "children": []},
-          {"name": "Under Eye Care", "children": []}
+          {
+            "name": "Washing Agents",
+            "children": []
+          },
+          {
+            "name": "Hydrators",
+            "children": []
+          },
+          {
+            "name": "Concentrates",
+            "children": []
+          },
+          {
+            "name": "UV Protection",
+            "children": []
+          },
+          {
+            "name": "Under Eye Care",
+            "children": []
+          }
         ]
       },
       {
         "name": "Color Cosmetics",
         "children": [
-          {"name": "Base Make-up", "children": []},
-          {"name": "Lip Color", "children": []},
-          {"name": "Lash Enhancer", "children": []},
-          {"name": "Cheek Color", "children": []},
-          {"name": "Applicator Tools", "children": []}
+          {
+            "name": "Base Make-up",
+            "children": []
+          },
+          {
+            "name": "Lip Color",
+            "children": []
+          },
+          {
+            "name": "Lash Enhancer",
+            "children": []
+          },
+          {
+            "name": "Cheek Color",
+            "children": []
+          },
+          {
+            "name": "Applicator Tools",
+            "children": []
+          }
         ]
       },
       {
         "name": "Health Essentials",
         "children": [
-          {"name": "Nutritional Tabs", "children": []},
-          {"name": "Dietary Aids", "children": []},
-          {"name": "Ache Relief", "children": []},
-          {"name": "Dormancy Assistance", "children": []},
-          {"name": "Oral Hygiene", "children": []}
+          {
+            "name": "Nutritional Tabs",
+            "children": []
+          },
+          {
+            "name": "Dietary Aids",
+            "children": []
+          },
+          {
+            "name": "Ache Relief",
+            "children": []
+          },
+          {
+            "name": "Dormancy Assistance",
+            "children": []
+          },
+          {
+            "name": "Oral Hygiene",
+            "children": []
+          }
         ]
       }
     ]

@@ -1,9 +1,10 @@
 import { CategoryTaxonomy } from 'src/features/file/file.service';
-import { SupplierCategoryEntity } from '../entity/supplier-category.entity';
+//import { SupplierCategoryEntity } from '../entity/supplier-category.entity';
+import { MarketplaceCategoryEntity } from '../entity/marketplace-category.entity';
 export class CategoryHelper {
   transformedCategory(
     category: CategoryTaxonomy,
-    categoryRow: SupplierCategoryEntity,
+    categoryRow: MarketplaceCategoryEntity,
   ): CategoryTaxonomy[] {
     const children: CategoryTaxonomy[] = [];
     for (const child of category.children) {

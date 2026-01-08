@@ -13,11 +13,10 @@ export class EmbeddingTestService implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    await this.tfService.ready();
-
-    const row = await this.repo.findOneBy({ id: 1 });
-    const results = await this.searchSimilar(row!.embedding, 'B');
-    console.log(results);
+    // await this.tfService.ready();
+    // const row = await this.repo.findOneBy({ id: 1 });
+    // const results = await this.searchSimilar(row!.embedding, 'B');
+    // console.log(results);
   }
 
   async add(source: string, texts: string[]) {

@@ -2,7 +2,8 @@
   <div class="category-row-wrapper">
    <button class="custom-button" (click)="getChildren()">
     @if (isExpandable()) {-} @else {+}
-   </button><p>{{category.name}}</p>
+   </button>
+   <p>{{category.name}} &#8594; <span class="associatedCategory">{{category.marketplace_category}}</span></p>
   </div>
   <div [class]="isOpen()  ? 'show-children' : 'hide-children'">
    @for (child of category.children; track child.id) {

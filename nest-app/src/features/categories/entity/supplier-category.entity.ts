@@ -23,6 +23,12 @@ export class SupplierCategoryEntity {
   @Column({ nullable: true })
   level: number;
 
+  @Column()
+  marketplace_category: string;
+
+  @Column({ type: 'vector', length: 512 })
+  embedding: number[];
+
   @ManyToOne(() => SupplierCategoryEntity, (category) => category.children)
   @JoinColumn({ name: 'parent_id' })
   parent: SupplierCategoryEntity;

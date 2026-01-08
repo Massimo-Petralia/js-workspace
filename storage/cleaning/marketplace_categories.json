@@ -1,0 +1,212 @@
+[
+  {
+    "name": "Consumer electronics",
+    "children": [
+      {
+        "name": "IT & Computers",
+        "children": [
+          {"name": "Portable PCs", "children": []},
+          {"name": "Desktop PCs", "children": []},
+          {"name": "Tablet PCs", "children": []},
+          {"name": "Displays", "children": []},
+          {"name": "Printing Devices", "children": []}
+        ]
+      },
+      {
+        "name": "Smart Tech",
+        "children": [
+          {"name": "Mobile Phones", "children": []},
+          {"name": "Smart Wearables", "children": []},
+          {"name": "Automated Living", "children": []},
+          {"name": "Audio Systems", "children": []},
+          {"name": "Earphones", "children": []}
+        ]
+      },
+      {
+        "name": "Imaging Apparatus",
+        "children": [
+          {"name": "Professional Cameras", "children": []},
+          {"name": "Compact System Cameras", "children": []},
+          {"name": "Video Recorders", "children": []},
+          {"name": "Optics", "children": []},
+          {"name": "Stabilizers", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Attire & Garments",
+    "children": [
+      {
+        "name": "Gentlemen's Wear",
+        "children": [
+          {"name": "Tops", "children": []},
+          {"name": "Bottoms", "children": []},
+          {"name": "Outerwear", "children": []},
+          {"name": "Formal Sets", "children": []},
+          {"name": "Intimates & Underwear", "children": []}
+        ]
+      },
+      {
+        "name": "Ladies' Wear",
+        "children": [
+          {"name": "Frocks & Attire", "children": []},
+          {"name": "Lower-body Wear", "children": []},
+          {"name": "Woven Shirts", "children": []},
+          {"name": "Overcoats", "children": []},
+          {"name": "Socks & Tights", "children": []}
+        ]
+      },
+      {
+        "name": "Shoes",
+        "children": [
+          {"name": "Athletic Shoes", "children": []},
+          {"name": "Work Boots", "children": []},
+          {"name": "Open Shoes", "children": []},
+          {"name": "Elegant Shoes", "children": []},
+          {"name": "Sport Shoes", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Dwelling & Terrain",
+    "children": [
+      {
+        "name": "Home Furnishings",
+        "children": [
+          {"name": "Couches", "children": []},
+          {"name": "Beds & Frames", "children": []},
+          {"name": "Seating", "children": []},
+          {"name": "Table Units", "children": []},
+          {"name": "Cabinetry", "children": []}
+        ]
+      },
+      {
+        "name": "Culinary Items",
+        "children": [
+          {"name": "Cooking Essentials", "children": []},
+          {"name": "Eating Utensils", "children": []},
+          {"name": "Home Electronics", "children": []},
+          {"name": "Dinnerware", "children": []},
+          {"name": "Drinkware", "children": []}
+        ]
+      },
+      {
+        "name": "Outdoor Living",
+        "children": [
+          {"name": "Barbecues", "children": []},
+          {"name": "Deck Seating", "children": []},
+          {"name": "Landscaping Tools", "children": []},
+          {"name": "Garden Hoses", "children": []},
+          {"name": "Garden Fountains", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Literature & Multimedia",
+    "children": [
+      {
+        "name": "Literature & Narrative",
+        "children": [
+          {"name": "Crime & Thriller", "children": []},
+          {"name": "Psychological Suspense", "children": []},
+          {"name": "Space Opera", "children": []},
+          {"name": "Affairs of the Heart", "children": []},
+          {"name": "Epic & High Fantasy", "children": []}
+        ]
+      },
+      {
+        "name": "Informational Texts",
+        "children": [
+          {"name": "Life Stories & Memoris", "children": []},
+          {"name": "Historical Studies", "children": []},
+          {"name": "Natural Sciences", "children": []},
+          {"name": "Motivational & Inspirational", "children": []},
+          {"name": "Recipes & Cookbooks", "children": []}
+        ]
+      },
+      {
+        "name": "Films & Recordings",
+        "children": [
+          {"name": "Home Cinema", "children": []},
+          {"name": "Analog Records", "children": []},
+          {"name": "Compact Discs", "children": []},
+          {"name": "Interactive Games", "children": []},
+          {"name": "Gaming Add-ons", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sports & Adventure",
+    "children": [
+      {
+        "name": "Workout Gear",
+        "children": [
+          {"name": "Walkers & Runners", "children": []},
+          {"name": "Free Weights", "children": []},
+          {"name": "Studio Mats", "children": []},
+          {"name": "Cycles", "children": []},
+          {"name": "Cycling Apparel", "children": []}
+        ]
+      },
+      {
+        "name": "Trekking & Outdoors",
+        "children": [
+          {"name": "Camping Tents", "children": []},
+          {"name": "Bivouac Sacks", "children": []},
+          {"name": "Packs & Rucksacks", "children": []},
+          {"name": "Emergency Kits", "children": []},
+          {"name": "Torches", "children": []}
+        ]
+      },
+      {
+        "name": "Group Competitions",
+        "children": [
+          {"name": "Hoops (Basketball)", "children": []},
+          {"name": "Football", "children": []},
+          {"name": "Diamond Sports (Baseball)", "children": []},
+          {"name": "Club & Ball Sports (Golf)", "children": []},
+          {"name": "Racket Sports (Tennis)", "children": []}
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cosmetics & Well-being",
+    "children": [
+      {
+        "name": "Facial Treatments",
+        "children": [
+          {"name": "Washing Agents", "children": []},
+          {"name": "Hydrators", "children": []},
+          {"name": "Skin Boosters", "children": []},
+          {"name": "UV Protection", "children": []},
+          {"name": "Under Eye Care", "children": []}
+        ]
+      },
+      {
+        "name": "Color Cosmetics",
+        "children": [
+          {"name": "Base Make-up", "children": []},
+          {"name": "Lip Color", "children": []},
+          {"name": "Lash Enhancer", "children": []},
+          {"name": "Cheek Color", "children": []},
+          {"name": "Cosmetic Brushes", "children": []}
+        ]
+      },
+      {
+        "name": "Wellness Mind & Body",
+        "children": [
+          {"name": "Nutritional Tabs", "children": []},
+          {"name": "Dietary Aid Supplements", "children": []},
+          {"name": "Ache Relief", "children": []},
+          {"name": "Dormancy Assistance", "children": []},
+          {"name": "Oral Hygiene Care", "children": []}
+        ]
+      }
+    ]
+  }
+]
