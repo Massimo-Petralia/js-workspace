@@ -1,4 +1,4 @@
-# Mappatura categorie con AI
+# Mappatura automatica categorie con AI
 Ho lavorato a un piccolo progetto per capire come l’intelligenza artificiale può aiutare a collegare dati scritti in modo diverso ma che in realtà hanno lo stesso significato.
 
 Nel mio caso si trattava di due liste di categorie (fornitore e marketplace) che normalmente andrebbero mappate a mano, una per una. Un lavoro lungo, ripetitivo e soggetto a errori — soprattutto in ambito e-commerce.
