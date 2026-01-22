@@ -7,6 +7,7 @@ import { SupplierCategoryEntity } from './entity/supplier-category.entity';
 import { CategoryController } from './category.controller';
 import { MarketplaceCategoryEntity } from './entity/marketplace-category.entity';
 import { TensorflowjsModule } from '../tensorflowjs/tensorflowjs.module';
+import { CategoryRepository } from './category-repository/category-repository';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { TensorflowjsModule } from '../tensorflowjs/tensorflowjs.module';
     FileModule,
     TensorflowjsModule,
   ],
-  providers: [CategoryService],
+  providers: [CategoryService, CategoryRepository],
   controllers: [CategoryController],
 })
 export class CategoryModule {}

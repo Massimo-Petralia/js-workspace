@@ -6,6 +6,7 @@ import { Repository, IsNull } from 'typeorm';
 import { CategoryHelper } from './helpers/category.helper';
 import { MarketplaceCategoryEntity } from './entity/marketplace-category.entity';
 import { TfService } from '../tensorflowjs/tensorflowjs.service';
+import { CategoryRepository } from './category-repository/category-repository';
 
 @Injectable()
 export class CategoryService implements OnModuleInit {
@@ -20,11 +21,13 @@ export class CategoryService implements OnModuleInit {
     @InjectRepository(MarketplaceCategoryEntity)
     private marketplaceCategoryRepository: Repository<MarketplaceCategoryEntity>,
     private tfService: TfService,
+    private categoryRepository: CategoryRepository,
   ) {}
 
   async onModuleInit() {
     await this.tfService.ready();
-    void this.associateCategoriesByDistance();
+    //void this.addEmbedding();
+    //void this.associateCategoriesByDistance();
   }
 
   getAllCategories(
@@ -34,18 +37,16 @@ export class CategoryService implements OnModuleInit {
   }
 
   async addEmbedding() {
-    const entities = await this.marketplaceCategoryRepository.find();
+    const entities = await this.supplierCategoryRepository.find();
     const embeddings = await this.tfService.embed(
       entities.map((category) => category.name),
     );
     for (const [index, category] of entities.entries()) {
-      await this.marketplaceCategoryRepository.update(
-        { id: category.id },
-        { embedding: embeddings[index] },
-      );
-      console.log(
-        'current processed element: ',
-        `index: ${index} id: ${category.id}`,
+      await this.categoryRepository.setEmbedding(
+        this.supplierCategoryRepository,
+        category,
+        index,
+        embeddings,
       );
     }
   }

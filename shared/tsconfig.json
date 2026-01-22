@@ -3,7 +3,8 @@
     "outDir": "dist",
     "declaration": true,
     "module": "commonjs",
-    "target": "es2017",
+    "target": "es2023",
+    "lib": ["ES2023", "ESNext.Iterator"],
     "strict": true
   },
   "include": ["src"]
