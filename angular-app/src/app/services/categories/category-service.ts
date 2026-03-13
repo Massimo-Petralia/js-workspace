@@ -12,6 +12,10 @@ export class CategoryService {
 
   constructor(private childRegistryService: ChildRegistryService) {}
 
+  populateDatabase(fileName: string): Observable<string> {
+    return this.httpClient.get<string>('/api/categories/filename');
+  }
+
   getTopCategories(): Observable<CategoryInterface[]> {
     return this.httpClient.get<CategoryInterface[]>('/api/categories');
   }

@@ -1,8 +1,0 @@
-<form [formGroup]="formCategory" class="form">
-    <button (click)="readSelect()">Load categories from file</button>
-    <select name="file" id="select-file" formControlName="selectFile">
-        <option value="Supplier categories">{{formCategory.controls.selectFile.value}}</option>
-        <option value="Marketplace categories">Marketplace categories</option>
-    </select>
-    <app-loader-component/>
-</form>

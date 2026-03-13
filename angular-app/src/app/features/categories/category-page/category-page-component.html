@@ -1,5 +1,5 @@
 <div>
-<app-category-tools />    
+<app-category-control (fileName)="onFileName($event)"/>    
 <ul>
 @for (category of categories; track category.id) {
 <li [style.--multiplicator]="category.level">
