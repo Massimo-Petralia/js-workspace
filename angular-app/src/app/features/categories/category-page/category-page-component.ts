@@ -23,10 +23,10 @@ export class CategoryPageComponent {
 
   onFileName(fileName: string) {
     this.categoryService.populateDatabase(fileName).subscribe((response) => {
-      if (response === fileName) {
-        alert(`The database is now populated with ${response}`);
+      if (response.filename === fileName) {
+        alert(`The database is now populated with ${response.filename}`);
       } else alert('Somethig went wrong !');
     });
-    console.log('filename', fileName);
+    //console.log('filename', response);
   }
 }
