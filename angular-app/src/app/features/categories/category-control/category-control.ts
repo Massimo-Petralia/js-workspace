@@ -24,7 +24,7 @@ export class CategoryControlComponent implements OnInit, OnChanges {
    if(populateDatabaseRes.firstChange) {
     return;
    }
-   if(populateDatabaseRes.currentValue) {
+   if(populateDatabaseRes) {
     alert(this.populateDatabaseRes.message);
    }
   }
