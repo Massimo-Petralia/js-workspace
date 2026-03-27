@@ -1,5 +1,5 @@
 <div>
-<app-category-control (fileName)="onFileName($event)"/>    
+<app-category-control (fileName)="onFileName($event)" [populateDatabaseRes]="populateDatabaseRes" />    
 <ul>
 @for (category of categories; track category.id) {
 <li [style.--multiplicator]="category.level">

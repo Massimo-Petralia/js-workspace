@@ -1,8 +1,8 @@
 <form [formGroup]="formCategory" class="form">
-    <button (click)="emitFileName()">Load categories from file</button>
+    <button (click)="emitFileName()">Populate database</button>
     <select name="file" id="select-file" formControlName="selectFile">
         <option value="supplier_categories">{{formCategory.controls.selectFile.value}}</option>
         <option value="marketplace_categories">marketplace_categories</option>
     </select>
-    <app-loader-component/>
+    <app-loader-component [id]="idMap.get('loader-populate-db')!" [loading]="loading" />
 </form>

@@ -2,19 +2,14 @@ import { Controller, Get, Param, Query } from '@nestjs/common';
 import { CategoryService } from './category.service';
 //import { SupplierCategoryEntity } from './entity/supplier-category.entity';
 import { CategoryInterface } from 'shared';
+import { FileService } from '../file/file.service';
 
 @Controller('api')
 export class CategoryController {
-  constructor(private categoryService: CategoryService) {}
-
-  @Get('categories/populate')
-  populateCategories(@Query('filename') fileName: string) {
-    try {
-      return { filename: fileName };
-    } catch (error) {
-      console.error('the error is : ', error);
-    }
-  }
+  constructor(
+    private categoryService: CategoryService,
+    private fileService: FileService,
+  ) {}
 
   @Get('categories')
   async getCategories() {
@@ -32,6 +27,15 @@ export class CategoryController {
         })),
     );
     return categories;
+  }
+
+  @Get('categories/populate')
+  async populateCategories(@Query('filename') fileName: string) {
+    const data = await this.fileService.handleFile(
+      process.env.STORAGE_BASE_PATH + `/${fileName}` + '.json',
+    );
+    await this.categoryService.populateCategories(data, undefined);
+    return { filename: fileName };
   }
 
   @Get('categories/:id')

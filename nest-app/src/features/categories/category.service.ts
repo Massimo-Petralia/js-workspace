@@ -10,7 +10,6 @@ import { CategoryRepository } from './category-repository/category-repository';
 
 @Injectable()
 export class CategoryService implements OnModuleInit {
-  categoriesFileName: string = 'marketplace_categories';
   public categories: SupplierCategoryEntity[] = [];
 
   categoryHelper = new CategoryHelper();
@@ -18,8 +17,7 @@ export class CategoryService implements OnModuleInit {
     private fileService: FileService,
     @InjectRepository(SupplierCategoryEntity)
     private supplierCategoryRepository: Repository<SupplierCategoryEntity>,
-    @InjectRepository(MarketplaceCategoryEntity)
-    private marketplaceCategoryRepository: Repository<MarketplaceCategoryEntity>,
+
     private tfService: TfService,
     private categoryRepository: CategoryRepository,
   ) {}
@@ -58,7 +56,7 @@ export class CategoryService implements OnModuleInit {
     }
     // eslint-disable-next-line prefer-const
     for (let entity of entities) {
-      const qb = this.marketplaceCategoryRepository
+      const qb = this.supplierCategoryRepository
         .createQueryBuilder('c')
         .select(['c.id', 'c.name'])
         .addSelect('c.embedding <=> :query', 'distance')
@@ -98,7 +96,7 @@ export class CategoryService implements OnModuleInit {
     depth: number | undefined = 0,
   ) {
     for (const category of categories) {
-      const categoryRow = await this.marketplaceCategoryRepository.save({
+      const categoryRow = await this.supplierCategoryRepository.save({
         name: category.name,
         parent_id: parentId,
         level: depth,
